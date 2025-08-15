@@ -1,3 +1,5 @@
 Este é um arquivo de exemplo para o WebAcademy
 Estou na primeira versão dele!
 Estou na segunda versão do arquivo
+
+Adicionando a terceira versão

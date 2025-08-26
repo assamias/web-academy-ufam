@@ -34,7 +34,7 @@ body {
 
 .container {
   display: flex;
-  align-items: flex-start; /* permite altura conforme conteúdo */
+  align-items: flex-start;
   max-width: 1200px;
   margin: 32px auto 0 auto;
   box-sizing: border-box;

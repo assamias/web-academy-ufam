@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gerador de histórias da Champions League</title>
+</head>
+<body>
+  <h1>Gerador de histórias da Champions League</h1>
+  <p>Clique em "Gerar história aleatória". Insira um nome para substituir <strong>Bob</strong>. Marque <em>UK</em> para conversões.</p>
+
+  <div class="controls">
+    <label>
+      <span>Inserir nome personalizado</span>
+      <input id="customName" type="text" placeholder="Ex: Seu Nome">
+    </label>
+
+    <label>
+      <input id="uk" type="checkbox">
+      <span>UK (conversões)</span>
+    </label>
+
+    <button id="randomize">Gerar história aleatória</button>
+  </div>
+
+  <article>
+    <p id="story">A história aparecerá aqui quando você clicar no botão.</p>
+  </article>
+
+  <!-- Inclua o JavaScript externo -->
+  <script src="main.js"></script>
+</body>
+</html>

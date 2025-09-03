@@ -4,6 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gerador de histórias da Champions League</title>
+    <style>
+    html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Segoe UI Emoji"; background:#f6f7f9; color:#111; }
+    .wrapper { max-width: 720px; margin: 40px auto; padding: 0 16px; }
+    h1 { font-size: 1.6rem; margin: 0 0 16px; }
+    .controls { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 16px; }
+    .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    label { font-weight: 600; }
+    input[type="text"] { flex: 1 1 240px; padding: 10px 12px; border: 1px solid #d0d7de; border-radius: 8px; outline: none; }
+    input[type="text"]:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+    .radios { display: flex; gap: 16px; align-items: center; }
+    .radios label { font-weight: 500; }
+    button { padding: 10px 14px; border: 1px solid #3b82f6; background: #3b82f6; color: #fff; border-radius: 8px; cursor: pointer; font-weight: 600; }
+    button:hover { background: #2563eb; border-color: #2563eb; }
+    .story { display: block; margin-top: 16px; padding: 16px; min-height: 60px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; line-height: 1.5; }
+    .hint { color:#555; font-size:.9rem; margin-top:8px; }
+  </style>
 </head>
 <body>
   <h1>Gerador de histórias da Champions League</h1>

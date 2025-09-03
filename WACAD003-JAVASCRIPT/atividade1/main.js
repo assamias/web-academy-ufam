@@ -50,3 +50,4 @@ function result() {
 
   story.textContent = newStory;
 }
+    

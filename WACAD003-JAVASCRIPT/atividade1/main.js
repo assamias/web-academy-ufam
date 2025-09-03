@@ -12,7 +12,7 @@ const storyText = 'Na noite decisiva em :insertx:, a torcida vibrava quando o ti
   'Bob disse que a temperatura era de 94 fahrenheit e que a taça pesava 300 libras. ' +
   'No fim, :insertx: levantou a Champions League diante da multidão.';
 
-const insertX = ['Madrid', 'Londres', 'Paris', 'Milão', 'Istambul'];
+const insertX = ['Real Madrid', 'Liverpool', 'Paris Saint German', 'Milão', 'Flamengo'];
 const insertY = ['um craque inesperado', 'o técnico nervoso', 'o goleiro heróico'];
 const insertZ = ['um gol de bicicleta', 'um pênalti salvador', 'uma virada histórica'];
 

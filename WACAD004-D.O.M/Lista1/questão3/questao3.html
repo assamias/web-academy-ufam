@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Questão 3</title>
+</head>
+<body>
+  <h1>Listas</h1>
+
+  <p id="lista-titulo" name="lista">Minhas listas:</p>
+
+  <ul class="lista-itens-1">
+    <li id="one" class="hot">item a</li>
+    <li id="two" class="hot">item b</li>
+    <li id="three" class="hot">item c</li>
+    <li id="four">item d</li>
+  </ul>
+
+  <ul class="lista-itens-2">
+    <li id="one" class="hot">item a</li>
+    <li id="two" class="hot">item b</li>
+    <li id="three" class="hot">item c</li>
+    <li id="four">item d</li>
+  </ul>
+
+  <ul class="lista-itens-3">
+    <li id="one" class="hot">item a</li>
+    <li id="two" class="hot">item b</li>
+    <li id="three" class="hot">item c</li>
+    <li id="four">item d</li>
+  </ul>
+
+  <ul class="lista-itens-4">
+    <li id="one" class="hot">item a</li>
+    <li id="two" class="hot">item b</li>
+    <li id="three" class="hot">item c</li>
+    <li id="four">item d</li>
+  </ul>
+
+  <script>
+    // i) Imprimir no console todos os itens da lista-itens-3
+    const todosItens = document.querySelectorAll(".lista-itens-3 li");
+    console.log("Todos os itens da lista-itens-3:");
+    todosItens.forEach(item => {
+      console.log(item.textContent);
+    });
+
+    // ii) Imprimir somente os itens da lista-itens-3 com classe 'hot'
+    const itensHot = document.querySelectorAll(".lista-itens-3 li.hot");
+    console.log("Itens da lista-itens-3 com classe 'hot':");
+    itensHot.forEach(item => {
+      console.log(item.textContent);
+    });
+  </script>
+</body>
+</html>

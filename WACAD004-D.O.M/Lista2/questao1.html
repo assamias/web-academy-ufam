@@ -13,26 +13,20 @@
   </ul>
 
   <script>
-    //Imprima no console o primeiro e último filho elementos HTML da lista-itens-1
+    // Selecionando a lista
     const lista = document.getElementById("lista-itens-1");
-    let firstItem = lista.firstElementChild;
-    let lastItem = lista.lastElementChild;
-    console.log(firstItem);
-    console.log(lastItem);
 
-    console.log("--------------------------------------------------");
+    // Primeiro e último filho, conforme item 1-c-i
+    console.log("Primeiro filho:", lista.firstElementChild);
+    console.log("Último filho:", lista.lastElementChild);
 
-    //Imprima no console o elemento HTML pai da lista-itens-1;
-    let paiItem = lista.parentNode;
-    console.log(paiItem);
+    // Pai da lista conforme item 1-c-ii
+    console.log("Pai da lista:", lista.parentElement);
 
-    console.log("--------------------------------------------------");
-
-    //Imprima no console os irmãos elemento HTML do item com id= ‘three’
-    const item3 = document.getElementById("three");
-    let irmaoAnterior = item3.previousElementSibling;
-    let irmaoPosterior = item3.nextElementSibling;
-    console.log(irmaoAnterior);
-    console.log(irmaoPosterior);
+    // Irmãos do item com id "three" conforme item 1-c-iii
+    const itemThree = document.getElementById("three");
+    console.log("Irmão anterior:", itemThree.previousElementSibling);
+    console.log("Irmão seguinte:", itemThree.nextElementSibling);
   </script>
 </body>
+</html>

@@ -23,12 +23,12 @@
     const lista = document.getElementById("lista-itens");
     const input = document.querySelector("input");
     const addButton = document.querySelector("button");
-    //adicionando evento de click no botão
+    //Adicionando evento de click no botão
     addButton.addEventListener("click", function () {
-      //verificando se o input não está vazio
+      //Verificando se o input não está vazio
       if (input.value !== "") {
         const novoItem = document.createElement("li"); //criando novo elemento li
-        novoItem.textContent = input.value; //adicionando o valor do input como texto do novo item
+        novoItem.textContent = input.value; //adicionando o valor do input como texto do novo item, conforme item 5-a-i
         lista.appendChild(novoItem); //adicionando o novo item à lista
         input.value = ""; //limpando o input
       }
@@ -40,7 +40,7 @@
       let lastItem = lista.lastElementChild; //pegando o último item da lista
       //verificando se existe um último item
       if (lastItem) {
-        lista.removeChild(lastItem); //removendo o último item da lista
+        lista.removeChild(lastItem); //removendo o último item da lista conforme item 5-b-i
       }
     });
   </script>

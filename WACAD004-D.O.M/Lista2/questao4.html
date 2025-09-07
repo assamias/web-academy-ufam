@@ -1,0 +1,21 @@
+<body>
+  <h1>Lista</h1>
+
+  <div>
+    <p id="lista-titulo" name="lista">Meus itens:</p>
+  </div>
+
+  <ul id="lista-itens-1">
+    <li id="one" class="hot">item a</li>
+    <li id="two" class="hot">item b</li>
+    <li id="three" class="hot">item c</li>
+    <li id="four">item d</li>
+  </ul>
+
+  <script>
+    // Remova o último elemento item <li> da lista <ul>
+    const lista = document.getElementById("lista-itens-1");
+    let lastItem = lista.lastElementChild;
+    lista.removeChild(lastItem);
+  </script>
+</body>

@@ -1,0 +1,25 @@
+<body>
+  <h1>Lista</h1>
+
+  <div>
+    <p id="lista-titulo" name="lista">Meus itens:</p>
+  </div>
+
+  <ul id="lista-itens-1">
+    <li id="one" class="hot">item a</li>
+    <li id="two" class="hot">item b</li>
+    <li id="three" class="hot">item c</li>
+    <li id="four">item d</li>
+  </ul>
+
+  <script>
+    //Utilize a propriedade nodeValue para alterar o texto do parágrafo com id "lista-titulo" para "Meus novos itens:";
+    const titulo = document.getElementById("lista-titulo");
+    titulo.firstChild.nodeValue = "Meus novos itens:";
+
+    //Selecione o último item da lista, com id "four", e utilize a propriedade textContent para alterar o texto para "Item D Atualizado".
+
+    const item4 = document.getElementById("four");
+    item4.textContent = "Item D Atualizado";
+  </script>
+</body>

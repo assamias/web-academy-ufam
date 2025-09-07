@@ -1,0 +1,47 @@
+<body>
+  <h1>To-do</h1>
+
+  <div>
+    <p id="lista-titulo" name="lista">Lista de atividades:</p>
+  </div>
+
+  <div>
+    <input placeholder="Digite aqui o item" />
+    <button>Adicionar</button>
+  </div>
+
+  <ul id="lista-itens">
+    <li>item a</li>
+  </ul>
+
+  <div>
+    <button id="removeButton">Remover último item</button>
+  </div>
+
+  <script>
+    //Implementar funcionalidade de adicionar novo item à lista, de forma dinâmica, a partir do campo de <input> e botão de “adicionar” - 2,5 pontos
+    const lista = document.getElementById("lista-itens");
+    const input = document.querySelector("input");
+    const addButton = document.querySelector("button");
+    //adicionando evento de click no botão
+    addButton.addEventListener("click", function () {
+      //verificando se o input não está vazio
+      if (input.value !== "") {
+        const novoItem = document.createElement("li"); //criando novo elemento li
+        novoItem.textContent = input.value; //adicionando o valor do input como texto do novo item
+        lista.appendChild(novoItem); //adicionando o novo item à lista
+        input.value = ""; //limpando o input
+      }
+    });
+
+    //Implementar funcionalidade de remover o último item da lista, a partir do botão “remover último item” - 2,5 pontos
+    const removeButton = document.getElementById("removeButton");
+    removeButton.addEventListener("click", function () {
+      let lastItem = lista.lastElementChild; //pegando o último item da lista
+      //verificando se existe um último item
+      if (lastItem) {
+        lista.removeChild(lastItem); //removendo o último item da lista
+      }
+    });
+  </script>
+</body>

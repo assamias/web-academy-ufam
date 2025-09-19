@@ -1,215 +1,221 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gerenciar Produtos</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gerenciar Produtos</title>
 
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
 
-    <!-- Estilos customizados -->
-    <style>
-      .estoque-zero {
-        color: red;}
-    </style>
-  </head>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <!-- Título -->
-        <a class="navbar-brand me-4" href="#">Aluguel de Filmes</a>
-        
-        <!-- Botão de colapso -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Alternar navegação"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  </head>
 
-        <!-- Menu colapsável -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <!-- Links à esquerda -->
-          <ul class="navbar-nav">
-            <li class="nav-item me-3">
-              <a class="nav-link active" aria-current="page" href="index.html">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="produtos.html">Gerenciar produtos</a>
-            </li>
-          </ul>
 
-          <!-- Botão Sair à direita -->
-          <div class="ms-auto">
-            <button type="button" class="btn btn-secondary">Sair</button>
-          </div>
-        </div>
-      </div>
-    </nav>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <!-- Título -->
+        <a class="navbar-brand me-4" href="#">Aluguel de Filmes</a>
+        
+        <!-- Botão de colapso -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Alternar navegação"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- Container principal -->
-    <div class="container mt-5">
-      <!-- Cabeçalho e botão novo produto -->
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Gerenciar Produtos</h2>
-        <button
-          class="btn btn-warning"
-          data-bs-toggle="modal"
-          data-bs-target="#modalNovoProduto"
-        >
-          Novo Produto
-        </button>
-      </div>
 
-      <!-- Tabela de Produtos -->
-      <table class="table table-striped table-hover">
-        <thead class="table-dark">
-          <tr>
-            <th>ID</th>
-            <th>Produto</th>
-            <th>Preço</th>
-            <th>Estoque</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Velozes e Furiosos</td>
-            <td>R$ 40,00</td>
-            <td>15</td>
-            <td>
-              <button class="btn btn-sm btn-secondary">Editar</button>
-              <button class="btn btn-sm btn-secondary">Excluir</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Velozes e Furiosos 2</td>
-            <td>R$ 50,00</td>
-            <td>20</td>
-            <td>
-              <button class="btn btn-sm btn-secondary">Editar</button>
-              <button class="btn btn-sm btn-secondary">Excluir</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Velozes e Furiosos - Desafio em Tóquio</td>
-            <td>R$ 60,00</td>
-            <td>7</td>
-            <td>
-              <button class="btn btn-sm btn-secondary">Editar</button>
-              <button class="btn btn-sm btn-secondary">Excluir</button>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Velozes e Furiosos 4</td>
-            <td>R$ 70,00</td>
-            <td class="estoque-zero">0</td>
-            <td>
-              <button class="btn btn-sm btn-secondary">Editar</button>
-              <button class="btn btn-sm btn-secondary">Excluir</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <!-- Menu colapsável -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Links à esquerda -->
+          <ul class="navbar-nav">
+            <li class="nav-item me-3">
+              <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="produtos.html">Gerenciar produtos</a>
+            </li>
+          </ul>
 
-    <!-- Modal: Novo Produto -->
-    <div
-      class="modal fade"
-      id="modalNovoProduto"
-      tabindex="-1"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Novo Produto</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Fechar"
-            ></button>
-          </div>
 
-          <div class="modal-body">
-            <form id="formNovoProduto" novalidate>
-              <div class="mb-3">
-                <label class="form-label">Produto</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="produto"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Preço</label>
-                <input
-                  type="number"
-                  step="0.01"
-                  class="form-control"
-                  name="preco"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Estoque</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  name="estoque"
-                  required
-                />
-              </div>
-              <button type="submit" class="btn btn-success w-100">
-                Confirmar cadastro
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+          <!-- Botão Sair à direita -->
+          <div class="ms-auto">
+            <button type="button" class="btn btn-secondary">Sair</button>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script de validação -->
-    <script>
-      const form = document.getElementById("formNovoProduto");
+    <!-- Container principal -->
+    <div class="container mt-5">
+      <!-- Cabeçalho e botão novo produto -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Gerenciar Produtos</h2>
+        <button
+          class="btn btn-warning"
+          data-bs-toggle="modal"
+          data-bs-target="#modalNovoProduto"
+        >
+          Novo Produto
+        </button>
+      </div>
 
-      form.addEventListener("submit", function (event) {
-        let valido = true;
 
-        form.querySelectorAll("[required]").forEach((campo) => {
-          if (!campo.value.trim()) {
-            campo.setCustomValidity("Este campo é obrigatório!");
-            campo.reportValidity();
-            valido = false;
-          } else {
-            campo.setCustomValidity("");
-          }
-        });
+      <!-- Tabela de Produtos -->
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Velozes e Furiosos</td>
+            <td>R$ 40,00</td>
+            <td>15</td>
+            <td>
+              <button class="btn btn-sm btn-secondary">Editar</button>
+              <button class="btn btn-sm btn-secondary">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Velozes e Furiosos 2</td>
+            <td>R$ 50,00</td>
+            <td>20</td>
+            <td>
+              <button class="btn btn-sm btn-secondary">Editar</button>
+              <button class="btn btn-sm btn-secondary">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Velozes e Furiosos - Desafio em Tóquio</td>
+            <td>R$ 60,00</td>
+            <td>7</td>
+            <td>
+              <button class="btn btn-sm btn-secondary">Editar</button>
+              <button class="btn btn-sm btn-secondary">Excluir</button>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Velozes e Furiosos 4</td>
+            <td>R$ 70,00</td>
+            <td class="text-danger fw-bold">0</td>
+            <td>
+              <button class="btn btn-sm btn-secondary">Editar</button>
+              <button class="btn btn-sm btn-secondary">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-        if (!valido) {
-          event.preventDefault();
-        }
-      });
-    </script>
-  </body>
+
+    <!-- Modal: Novo Produto -->
+    <div
+      class="modal fade"
+      id="modalNovoProduto"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Novo Produto</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+
+
+          <div class="modal-body">
+            <form id="formNovoProduto" novalidate>
+              <div class="mb-3">
+                <label class="form-label">Produto</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="produto"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Preço</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  class="form-control"
+                  name="preco"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Estoque</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="estoque"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-success w-100">
+                Confirmar cadastro
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Script de validação -->
+    <script>
+      const form = document.getElementById("formNovoProduto");
+
+
+      form.addEventListener("submit", function (event) {
+        let valido = true;
+
+
+        form.querySelectorAll("[required]").forEach((campo) => {
+          if (!campo.value.trim()) {
+            campo.setCustomValidity("Este campo é obrigatório!");
+            campo.reportValidity();
+            valido = false;
+          } else {
+            campo.setCustomValidity("");
+          }
+        });
+
+
+        if (!valido) {
+          event.preventDefault();
+        }
+      });
+    </script>
+  </body>
 </html>

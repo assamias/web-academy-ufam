@@ -1,14 +1,10 @@
 {
-  "name": "wacad007-node.js",
+  "name": "node1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node1/index.js",
-    "start:dev": "nodemon node1/index.js",
-    "start:prod": "NODE_ENV=production node node1/index.js"
-
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",

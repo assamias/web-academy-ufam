@@ -1,12 +1,17 @@
-const path = require("path");
-const fs = require("fs");
-const http = require("http");
+import path from "path";
+import fs from "fs";
+import http from "http";
+import dotenv from "dotenv";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url); 
+const __dirname = path.dirname(__filename);  
 
 const env = process.env.NODE_ENV || "development";
-require("dotenv").config({ path: `.env.${env}` });
+dotenv.config({ path: path.join(__dirname, `.env.${env}`) }); 
 
-const PORT = process.env.PORT || 3000;
-const DIRECTORY = path.join(__dirname, "pulblic"); // public correto
+const PORT = process.env.PORT || 5000; 
+const DIRECTORY = path.join(__dirname, "public"); // pasta public 
 
 function createLink(filename) {
   return `<a href="/file/${filename}">${filename}</a><br>\n`;
@@ -17,7 +22,7 @@ const server = http.createServer((req, res) => {
     fs.readdir(DIRECTORY, (err, files) => {
       if (err) {
         res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
-        return res.end("Erro ao listar diretório");
+        return res.end(`Erro ao listar diretório: ${DIRECTORY}`);
       }
       res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
       files.forEach((file) => res.write(createLink(file)));
@@ -41,4 +46,6 @@ const server = http.createServer((req, res) => {
 });
 
 console.log("Pasta pública ->", DIRECTORY);
-server.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));
+server.listen(PORT, () =>
+  console.log(`Servidor rodando em http://localhost:${PORT}`)
+);

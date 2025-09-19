@@ -1,0 +1,22 @@
+{
+  "name": "wacad007-node.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node1/index.js",
+    "start:dev": "nodemon node1/index.js",
+    "start:prod": "NODE_ENV=production node node1/index.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

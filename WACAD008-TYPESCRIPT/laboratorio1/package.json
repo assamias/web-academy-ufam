@@ -10,10 +10,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
     "@types/node": "^24.5.2",
     "@types/readline-sync": "^1.4.8",
     "readline-sync": "^1.4.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
   }
 }

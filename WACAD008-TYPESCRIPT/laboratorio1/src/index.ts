@@ -1,135 +1,89 @@
-const readline = require("readline-sync"); // use require com module: commonjs
-
 // Tipo Tupla de Lembrete
-type Lembrete = [string, Date, Date | null, string?];
+type Lembrete = [string, Date, Date | null, string | null];
 
-// Lista de lembretes
 let lembretes: Lembrete[] = [];
 
-// Autenticação simples
-const usuarioPadrao = "alexandre";
-const senhaPadrao = "1234";
+// Elementos do DOM
+const tituloInput = document.getElementById("titulo") as HTMLInputElement;
+const prazoInput = document.getElementById("prazo") as HTMLInputElement;
+const descricaoInput = document.getElementById("descricao") as HTMLTextAreaElement;
+const lista = document.getElementById("lista") as HTMLUListElement;
+const btnAdicionar = document.getElementById("adicionar") as HTMLButtonElement;
 
-function autenticar(): boolean {
-    console.log("===== LOGIN =====");
-    const usuario = readline.question("Usuario: ");
-    const senha = readline.question("Senha: ", { hideEchoBack: true });
+// Renderizar lista
+function renderizar(): void {
+  lista.innerHTML = "";
 
-    if (usuario === usuarioPadrao && senha === senhaPadrao) {
-        console.log("\n Login realizado com sucesso!\n");
-        return true;
-    } else {
-        console.log("\n Usuario ou senha incorretos!\n");
-        return false;
-    }
-}
-
-
-// Funções CRUD
-function criarLembrete(): void {
-    console.log("\n=== Criar Lembrete ===");
-    const titulo = readline.question("Titulo: ");
-    const descricao = readline.question("Descricao (opcional): ");
-    const prazo = readline.question("Data limite (YYYY-MM-DD) (opcional): ");
-
-    let dataLimite: Date | null = null;
-    if (prazo.trim() !== "") {
-        dataLimite = new Date(prazo);
-    }
-
-    const lembrete: Lembrete = [titulo, new Date(), dataLimite, descricao || undefined];
-    lembretes.push(lembrete);
-
-    console.log("Lembrete criado com sucesso!\n");
-}
-
-function listarLembretes(): void {
-    console.log("\n=== Lista de Lembretes ===");
-    if (lembretes.length === 0) {
-        console.log("Nenhum lembrete cadastrado.\n");
-        return;
-    }
-    lembretes.forEach((l, i) => {
-        console.log(`${i + 1}. ${l[0]} (inserido em: ${l[1].toLocaleString()})`);
-        if (l[2]) console.log(`Prazo: ${l[2]?.toLocaleDateString()}`);
-        if (l[3]) console.log(`Descricao: ${l[3]}`);
-    });
-    console.log();
-}
-
-function editarLembrete(): void {
-  listarLembretes();
-  const index = readline.questionInt("Digite o numero do lembrete para editar: ") - 1;
-
-  // valida o indice e obtém o item de forma "segura" para o TS
-  const item = lembretes[index];
-  if (!item) {
-    console.log("Indice invalido!\n");
+  if (lembretes.length === 0) {
+    lista.innerHTML = `<li class="list-group-item text-center">Nenhum lembrete cadastrado.</li>`;
     return;
   }
 
-  const novoTitulo = readline.question("Novo titulo (deixe vazio para manter): ");
-  const novaDescricao = readline.question("Nova descricao (opcional): ");
-  const novoPrazo = readline.question("Nova data limite (YYYY-MM-DD) (opcional): ");
+  lembretes.forEach((l, i) => {
+    const li = document.createElement("li");
+    li.className = "list-group-item d-flex justify-content-between align-items-center flex-wrap";
+    li.innerHTML = `
+      <div class="me-3">
+        <strong>${l[0]}</strong><br>
+        Inserido em: ${l[1].toLocaleDateString()}
+        ${l[2] ? `<br>Prazo: ${l[2].toLocaleDateString()}` : ""}
+        ${l[3] ? `<br>Descrição: ${l[3]}` : ""}
+      </div>
+      <div class="actions mt-2 mt-md-0">
+        <button class="btn btn-sm btn-warning me-1" onclick="editar(${i})">Editar</button>
+        <button class="btn btn-sm btn-danger" onclick="deletar(${i})">Excluir</button>
+      </div>
+    `;
+    lista.appendChild(li);
+  });
+}
 
-  if (novoTitulo.trim() !== "") {
-    item[0] = novoTitulo;
+// Criar lembrete
+function criarLembrete(): void {
+  const titulo = tituloInput.value.trim();
+  const descricao = descricaoInput.value.trim();
+  const prazo = prazoInput.value;
+
+  if (!titulo) {
+    alert("O título é obrigatório!");
+    return;
   }
 
-  if (novaDescricao.trim() !== "") {
-    item[3] = novaDescricao;
-  }
+  let dataLimite: Date | null = prazo ? new Date(prazo) : null;
+  const lembrete: Lembrete = [titulo, new Date(), dataLimite, descricao || null];
+  lembretes.push(lembrete);
 
-  if (novoPrazo.trim() !== "") {
-    item[2] = new Date(novoPrazo);
-  }
+  tituloInput.value = "";
+  descricaoInput.value = "";
+  prazoInput.value = "";
 
-  console.log("Lembrete atualizado!\n");
+  renderizar();
 }
 
+// Editar lembrete (com prompts)
+(window as any).editar = (index: number): void => {
+  const item = lembretes[index];
+  if (!item) return;
 
-function deletarLembrete(): void {
-    listarLembretes();
-    const index = readline.questionInt("Digite o numero do lembrete para deletar: ") - 1;
+  const novoTitulo = prompt("Novo título:", item[0]);
+  const novaDescricao = prompt("Nova descrição:", item[3] || "");
+  const novoPrazo = prompt("Nova data limite (YYYY-MM-DD):", item[2] ? item[2].toISOString().slice(0, 10) : "");
 
-    if (index < 0 || index >= lembretes.length) {
-        console.log("Indice invalido!\n");
-        return;
-    }
+  if (novoTitulo && novoTitulo.trim() !== "") item[0] = novoTitulo.trim();
+  if (novaDescricao && novaDescricao.trim() !== "") item[3] = novaDescricao.trim();
+  if (novoPrazo && novoPrazo.trim() !== "") item[2] = new Date(novoPrazo);
 
-    lembretes.splice(index, 1);
-    console.log("🗑️ Lembrete deletado!\n");
-}
+  renderizar();
+};
 
+// Deletar lembrete (com confirm)
+(window as any).deletar = (index: number): void => {
+  const confirmar = confirm("Tem certeza que deseja excluir este lembrete?");
+  if (!confirmar) return;
 
-// Menu principal
-function menu(): void {
-    let opcao: number;
+  lembretes.splice(index, 1);
+  renderizar();
+};
 
-    do {
-        console.log("=== MENU ===");
-        console.log("1 - Criar lembrete");
-        console.log("2 - Listar lembretes");
-        console.log("3 - Editar lembrete");
-        console.log("4 - Deletar lembrete");
-        console.log("0 - Sair");
-
-        opcao = readline.questionInt("Escolha uma opcao: ");
-
-        switch (opcao) {
-            case 1: criarLembrete(); break;
-            case 2: listarLembretes(); break;
-            case 3: editarLembrete(); break;
-            case 4: deletarLembrete(); break;
-            case 0: console.log("Saindo..."); break;
-            default: console.log("Opcao invalida!\n");
-        }
-
-    } while (opcao !== 0);
-}
-
-
-// Programa Principal
-if (autenticar()) {
-    menu();
-}
+// Evento do botão "Adicionar"
+btnAdicionar.addEventListener("click", criarLembrete);

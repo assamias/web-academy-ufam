@@ -17,33 +17,27 @@ class Turma {
     this.alunos.push(aluno);
     this.atualizar();
   }
-
   editar(alunoEditado: Aluno) {
     this.alunos = this.alunos.map(a => a.id === alunoEditado.id ? alunoEditado : a);
     this.atualizar();
   }
-
   remover(id: number) {
     this.alunos = this.alunos.filter(a => a.id !== id);
     this.atualizar();
   }
-
   getNumAlunos(): number {
     return this.alunos.length;
   }
-
   getMediaIdades(): number {
     if (this.alunos.length === 0) return 0;
     let soma = this.alunos.reduce((s, a) => s + a.idade, 0);
     return soma / this.alunos.length;
   }
-
   getMediaAlturas(): number {
     if (this.alunos.length === 0) return 0;
     let soma = this.alunos.reduce((s, a) => s + a.altura, 0);
     return soma / this.alunos.length;
   }
-
   getMediaPesos(): number {
     if (this.alunos.length === 0) return 0;
     let soma = this.alunos.reduce((s, a) => s + a.peso, 0);
@@ -115,7 +109,7 @@ form.addEventListener("submit", function (e) {
   idInput.value = "";
 });
 
-// Funções globais (precisam estar no window)
+// Funções globais
 (window as any).editar = function (id: number) {
   let aluno = turma.getAlunos().find(a => a.id === id);
   if (!aluno) return;

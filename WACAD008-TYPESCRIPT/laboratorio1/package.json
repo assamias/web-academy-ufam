@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc", 
+    "dev": "tsc --watch",
+    "serve": "http-server . -p 8080",
+    "start": "npm run build && npm run serve"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +16,7 @@
     "@types/bootstrap": "^5.2.10",
     "@types/node": "^24.5.2",
     "@types/readline-sync": "^1.4.8",
+    "http-server": "^14.1.1",
     "readline-sync": "^1.4.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"

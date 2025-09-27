@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratório 02 - Turma</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Aplicação de Estatísticas da Turma</h1>
+
+  <h2>Cadastrar / Editar Aluno</h2>
+  <form id="formAluno">
+    <input type="hidden" id="alunoId">
+    <label>Nome: <input type="text" id="nome" required></label>
+    <label>Idade: <input type="number" id="idade" required></label>
+    <label>Altura (cm): <input type="number" id="altura" required></label>
+    <label>Peso (kg): <input type="number" id="peso" required></label>
+    <button type="submit">Salvar</button>
+  </form>
+
+  <button id="btnGerar">Gerar Alunos Aleatórios</button>
+
+  <h2>Lista de Alunos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Altura</th>
+        <th>Peso</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaAlunos"></tbody>
+  </table>
+
+  <h2>Estatísticas da Turma</h2>
+  <div class="estatisticas">
+    <p>Total de alunos: <span id="numAlunos">0</span></p>
+    <p>Média das idades: <span id="mediaIdades">0</span></p>
+    <p>Média das alturas: <span id="mediaAlturas">0</span></p>
+    <p>Média dos pesos: <span id="mediaPesos">0</span></p>
+  </div>
+
+  <script src="dist/index.js"></script>
+</body>
+</html>

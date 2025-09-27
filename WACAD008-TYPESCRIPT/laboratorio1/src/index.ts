@@ -1,4 +1,4 @@
-// ==== Tipos ====
+// ==== Tipos Tupla ====
 type Lembrete = [string, Date, Date | null, string | null];
 
 // ==== Estado + Storage ====
@@ -84,7 +84,7 @@ function formatDateTimeForList(d: Date): string {
 
 // ==== DOM ====
 const tituloInput = document.getElementById("titulo") as HTMLInputElement;
-const prazoInput = document.getElementById("prazo") as HTMLInputElement; // <input type="datetime-local">
+const prazoInput = document.getElementById("prazo") as HTMLInputElement; 
 const descricaoInput = document.getElementById("descricao") as HTMLTextAreaElement;
 const lista = document.getElementById("lista") as HTMLUListElement;
 const btnAdicionar = document.getElementById("adicionar") as HTMLButtonElement;
@@ -138,7 +138,7 @@ function renderizar(): void {
 function criarLembrete(): void {
   const titulo = tituloInput.value.trim();
   const descricao = descricaoInput.value.trim();
-  const prazoStr = prazoInput.value; // datetime-local → "YYYY-MM-DDTHH:mm"
+  const prazoStr = prazoInput.value;
 
   if (!titulo) {
     alert("O título é obrigatório!");
@@ -163,12 +163,10 @@ function editar(index: number): void {
   if (!item) return;
 
   const novoTitulo = prompt("Novo título:", item[0]) ?? "";
-  const novaDescricao = prompt("Nova descrição (opcional):", item[3] || "") ?? "";
-
-  // sugestão em PT-BR: "DD/MM/AAAA HH:mm"
+  const novaDescricao = prompt("Nova descrição:", item[3] || "") ?? "";
   const prazoSug = item[2] ? formatPtBrDateTime(item[2]) : "";
   const novoPrazoStr = prompt(
-    "Nova data limite (DD/MM/AAAA HH:mm, opcional):",
+    "Nova data limite (DD/MM/AAAA HH:mm):",
     prazoSug
   ) ?? "";
 

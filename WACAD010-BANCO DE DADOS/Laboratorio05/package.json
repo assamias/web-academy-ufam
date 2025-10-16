@@ -1,0 +1,28 @@
+{
+  "name": "laboratorio05",
+  "version": "1.0.0",
+  "description": "Laboratório 05 - Prisma ORM",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alexandre Samias",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.8.0",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.17.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.17.1"
+  },
+  "prisma": {
+  "seed": "ts-node prisma/seed.ts"
+  }
+}

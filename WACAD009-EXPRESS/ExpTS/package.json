@@ -1,0 +1,51 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "nodemon --watch src --ext ts --exec \"npx tsx src/index.ts\"",
+    "watch": "tsc -w",
+    "lint": "eslint src --ext .ts,.js",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,json,md}\"",
+    "sass": "sass src/sass/main.scss src/public/css/main.css --watch",
+    "start:db": "npx json-server --watch data/db.json --port 3355"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@types/express": "^5.0.3",
+    "@types/express-handlebars": "^5.3.1",
+    "@types/lorem-ipsum": "^1.0.2",
+    "@types/node": "^24.9.1",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.4.0",
+    "jiti": "^2.6.1",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "sass": "^1.93.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
+  },
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^1.13.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "json-server": "^1.0.0-beta.3",
+    "lorem-ipsum": "^2.0.8",
+    "sass-middleware": "^0.0.3",
+    "undici-types": "^7.16.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

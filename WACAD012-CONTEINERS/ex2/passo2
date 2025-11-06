@@ -1,0 +1,16 @@
+Crie um container de MySQL sendo associado a um server (abstraia e considere que o servidor é uma pasta server/) ->
+
+    mkdir .\server
+    docker run -d --name mysql-bind -e MYSQL_ROOT_PASSWORD=senha123 -v ${PWD}\server:/var/lib/mysql mysql:8.0
+    
+Crie a tabela com o comando fornecido -> 
+
+    docker exec -i mysql-bind mysql -uroot -psenha123 -e "CREATE DATABASE testdb; USE testdb; CREATE TABLE pessoa (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100));"
+
+Rode o inspect e tire print -> 
+
+    docker inspect mysql-bind
+
+Apague o container 
+
+    docker rm -f mysql-bind

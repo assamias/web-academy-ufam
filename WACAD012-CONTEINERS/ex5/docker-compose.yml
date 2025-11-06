@@ -1,0 +1,25 @@
+services:
+  backend-web:
+    build:
+      context: .
+      dockerfile: back.dockerfile
+    container_name: backend-web
+    ports:
+      - 4000:4000
+    networks:
+      - net-web
+  frontend-web:
+    build:
+      context: .
+      dockerfile: front.dockerfile
+    container_name: frontend-web
+    ports:
+      - 3000:3000
+    networks:
+      - net-web
+    depends_on:
+      - backend-web
+
+networks:
+  net-web:
+    driver: bridge

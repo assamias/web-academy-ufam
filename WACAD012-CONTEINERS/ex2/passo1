@@ -1,0 +1,11 @@
+Crie um container de MySQL sem volumes associados -> 
+
+    docker run -d --name mysql-novol -e MYSQL_ROOT_PASSWORD=senha123 mysql:8.0
+
+Crie a tabela com o comando fornecido ->
+
+    docker exec -i mysql-novol mysql -uroot -psenha123 -e "CREATE DATABASE testdb; USE testdb; CREATE TABLE pessoa (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100));"
+
+Apague o container
+
+    docker rm -f mysql-novol

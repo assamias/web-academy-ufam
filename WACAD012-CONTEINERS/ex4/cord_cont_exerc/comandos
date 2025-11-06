@@ -1,0 +1,12 @@
+
+## Comandos para o Backend
+docker build -t back-app -f dockerfile-back .
+docker network create net-app
+docker run -d --name backend-web --network net-app -p 4000:4000 back-app
+
+## Comandos para o Frontend
+docker run build -t front-app -f dockerfile-front .
+docker run -d --name frontend-web --network net-app -p 3000:3000 front-app
+
+## Ver logs do Backend
+docker logs -f backend-web

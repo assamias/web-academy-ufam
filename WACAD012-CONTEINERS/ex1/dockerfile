@@ -1,0 +1,5 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install -y nginx
+EXPOSE 7000
+CMD ["nginx", "-g", "daemon off;"]

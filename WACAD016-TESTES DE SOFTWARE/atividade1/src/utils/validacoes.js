@@ -1,11 +1,11 @@
 /**
- * Extrai o primeiro nome de uma string de nome completo.
+ * Obtém o primeiro nome a partir de uma string contendo o nome completo.
  *
- * @param {string} nomeCompleto - O nome completo do usuário, separado por espaços.
- * @returns {string} - O primeiro nome extraído do nome completo ou o próprio nome caso não haja espaços.
+ * @param {string} nomeCompleto - Nome completo informado pelo usuário, separado por espaços.
+ * @returns {string} - Retorna somente o primeiro nome ou o nome completo caso não exista separação.
  */
 function primeiroNome(nomeCompleto) {
-  // trocado para indexOf para pegar o primeiro nome
+  // Usando indexOf para localizar o primeiro espaço
   const espacoEmBranco = nomeCompleto.indexOf(" ");
 
   if (espacoEmBranco === -1) return nomeCompleto;
@@ -13,12 +13,11 @@ function primeiroNome(nomeCompleto) {
 }
 
 /**
- * Verifica a disponibilidade de um produto em estoque com base no tipo e na quantidade desejada.
+ * Avalia se existe estoque suficiente para um produto específico, considerando o tipo e a quantidade solicitada.
  *
- * @param {string} tipoProduto - O tipo do produto a ser verificado no estoque.
- * @param {number} quantidade - A quantidade desejada do produto a ser verificada.
- * @returns {boolean} - Retorna true se a quantidade desejada do tipo de produto especificado estiver disponível
- *                      no estoque, caso contrário retorna false.
+ * @param {string} tipoProduto - Categoria do produto que será consultado no estoque.
+ * @param {number} quantidade - Quantidade desejada para validação.
+ * @returns {boolean} - Retorna true caso a quantidade esteja disponível, caso contrário retorna false.
  */
 function verificarDisponibilidadeEstoque(tipoProduto, quantidade) {
   const estoque = {
@@ -31,29 +30,28 @@ function verificarDisponibilidadeEstoque(tipoProduto, quantidade) {
 
   const estoqueDisponivel = estoque[tipoProduto];
 
-  // Verifica se a quantidade desejada está disponível
+  // Confirma se o estoque atual suporta a quantidade requisitada
   if (estoqueDisponivel >= quantidade) return true;
   else return false;
 }
 
 /**
- * Calcula o preço total de um array de produtos em uma aplicação de e-commerce.
+ * Soma o valor total de um conjunto de produtos em um carrinho de compras.
  *
- * @param {Array} produtos - Um array de objetos de produtos, cada um contendo as propriedades 'preco' e 'quantidade'.
- * @returns {number} - O preço total obtido multiplicando o preço de cada produto pela sua quantidade
- *                     e somando os preços individuais dos produtos.
+ * @param {Array} produtos - Lista de objetos contendo preço e quantidade de cada item.
+ * @returns {number} - Valor total resultante da multiplicação de preço x quantidade de cada elemento.
  *
- * Exemplo de array de produtos:
- *   [
- *     { nome: 'Produto 1', preco: 10, quantidade: 2 },
- *     { nome: 'Produto 2', preco: 15, quantidade: 2 },
- *     { nome: 'Produto 3', preco: 20, quantidade: 1 }
- *   ]
+ * Exemplo:
+ * [
+ *   { nome: 'Produto 1', preco: 10, quantidade: 2 },
+ *   { nome: 'Produto 2', preco: 15, quantidade: 2 },
+ *   { nome: 'Produto 3', preco: 20, quantidade: 1 }
+ * ]
  */
 function calcularPrecoTotal(produtos) {
   let total = 0;
   for (let i = 0; i < produtos.length; i++) {
-    // Corrigida
+    // Cálculo corrigido: preço multiplicado pela quantidade
     total += produtos[i].preco * produtos[i].quantidade;
   }
   return total;

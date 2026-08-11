@@ -1,0 +1,43 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+body {
+    min-height: 50vh;
+    min-width: 50vw;
+    background: url('https://wallpapercave.com/wp/wp14380793.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.info-card {
+    position: absolute;
+    top: 34px;
+    left: 30px;
+    width: 320px;
+    padding: 18px 18px 18px 18px;
+    background: rgba(19,12,15, 0.85);
+    color: #fff;
+    border-radius: 16px;
+    border: 3px solid #fcaf3e;
+    box-shadow: 0 4px 34px rgba(0,0,0,0.48);
+    z-index: 1;
+}
+
+.info-card h2 {
+    margin-top: 0;
+    font-size: 1.55em;
+    margin-bottom: 10px;
+    color: #fcaf3e;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.info-card p {
+    margin: 0;
+    font-size: 1.04em;
+    line-height: 1.5;
+}

@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Layout 2 - CSS Grid</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício CSS4 - Navigation Bars</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="item red"></div>
-    <div class="item green"></div>
-    <div class="item purple"></div>
-    <div class="item blue"></div>
-    <div class="item orange"></div>
-  </div>
+
+    <!-- Primeira Barra-->
+    <header class="navbar nav-1">
+        <div class="logo">LOGOBAKERY</div>
+        <ul class="nav-links">
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <a href="#" class="btn-contact">Contact</a>
+    </header>
+
+    <!-- Segunda Barra -->
+    <header class="navbar nav-2">
+        <div class="nav-group">
+            <ul class="nav-links">
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <a href="#" class="btn-contact">Contact</a>
+        </div>
+        <div class="logo">LOGOBAKERY</div>
+    </header>
+
+    <!-- Terceira Barra -->
+    <header class="navbar nav-3">
+        <div class="logo">LOGOBAKERY</div>
+        <div class="nav-group">
+            <ul class="nav-links">
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <a href="#" class="btn-contact">Contact</a>
+        </div>
+    </header>
+
 </body>
 </html>

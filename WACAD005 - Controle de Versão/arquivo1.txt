@@ -1,2 +1,3 @@
 Laboratório de Git - Aula 01
-Edição realizada dentro da branch
+
+Alteração feita direto na main pelo GitHub

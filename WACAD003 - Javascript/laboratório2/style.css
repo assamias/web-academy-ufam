@@ -1,0 +1,57 @@
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  width: 640px;
+  margin: 0 auto;
+}
+
+.full-img {
+  position: relative;
+  width: 640px;
+  height: 480px;
+}
+
+.displayed-img {
+  width: 640px;
+  height: 480px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+  background-color: rgba(0, 0, 0, 0);
+  pointer-events: none; /* Permite clicar através do overlay caso necessário */
+}
+
+button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(150, 150, 150, 0.6);
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 10; /* Garante que o botão fique sempre por cima */
+}
+
+.thumb-bar {
+  width: 640px;
+  clear: both;
+}
+
+.thumb-bar img {
+  display: block;
+  width: 20%;
+  height: 100px;
+  object-fit: cover;
+  float: left;
+  cursor: pointer;
+}

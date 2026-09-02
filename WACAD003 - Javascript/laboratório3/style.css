@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+canvas {
+  display: block;
+}

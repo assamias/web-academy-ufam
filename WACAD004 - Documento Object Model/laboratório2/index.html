@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+
+    <style>
+        /* Classes base já preparadas no CSS */
+        .card-tarefa { 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border: 1px solid;  
+        }
+        
+        .card-sucesso { 
+            background-color: #d4edda; 
+        }
+    </style>
+</head>
+<body>
+    <div id="painel-sprint" style="max-width: 400px;">
+        <h2>Tarefas da Sprint</h2>
+
+        <!-- Card 1 -->
+        <div class="card-tarefa card-desatualizado">
+            <h3 style="margin-top: 0;">Criar Banco de Dados</h3>
+            <p>Status: <span>Finalizada</span></p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-tarefa card-urgente">
+            <h3 style="margin-top: 0;">Corrigir bug de Login</h3>
+            <p>Status: <span>Urgente</span></p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-tarefa card-desatualizado">
+            <h3 style="margin-top: 0;">Atualizar Documentação</h3>
+            <p>Status: <span>Finalizada</span></p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card-tarefa card-desatualizado">
+            <h3 style="margin-top: 0;">Subi a última versão para o Github</h3>
+            <p>Status: <span>Finalizada</span></p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card-tarefa card-urgente">
+            <h3 style="margin-top: 0;">Corrigir os Testes</h3>
+            <p>Status: <span>Urgente</span></p>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. Seleciona os cards desatualizados e substitui a classe por 'card-sucesso'
+        const cardsDesatualizados = document.querySelectorAll('.card-desatualizado');
+        cardsDesatualizados.forEach(card => {
+            card.classList.replace('card-desatualizado', 'card-sucesso');
+        });
+
+        // 2. Seleciona os cards urgentes e altera a cor de fundo via style
+        const cardsUrgentes = document.querySelectorAll('.card-urgente');
+        cardsUrgentes.forEach(card => {
+            card.style.backgroundColor = '#f8d7da';
+        });
+
+        // 3. Seleciona os elementos de texto do status (span) e aplica o estilo negrito
+        const statusSpans = document.querySelectorAll('.card-tarefa p span');
+        statusSpans.forEach(span => {
+            span.style.fontWeight = 'bold';
+        });
+    </script>
+</body>
+</html>

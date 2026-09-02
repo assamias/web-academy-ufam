@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Tarefas</title>
+  </head>
+  <body>
+    <div id="organizador">
+      <h3>Tarefas Pendentes:</h3>
+      <ul id="lista-pendentes">
+        <li id="tarefa-carro">Lavar o carro</li>
+        <li id="tarefa-js">Estudar JavaScript</li>
+        <li id="tarefa-livro">Ler livro</li>
+        <li id="tarefa-roupas">Dobrar as roupas</li>
+      </ul>
+
+      <h3>Tarefas Concluídas:</h3>
+      <ul id="lista-concluidas">
+        <li>Fazer compras</li>
+      </ul>
+    </div>
+
+    <script>
+      // 1. Apague a tarefa "Lavar o carro"
+      const tarefaCarro = document.getElementById('tarefa-carro');
+      tarefaCarro.remove();
+
+      // 2. Mova a tarefa "Estudar JavaScript" para a lista de concluídas
+      const tarefaJS = document.getElementById('tarefa-js');
+      const listaConcluidas = document.getElementById('lista-concluidas');
+      listaConcluidas.appendChild(tarefaJS);
+
+      // 3. Crie uma nova tarefa (<li>) "Fazer exercícios" e adicione-a depois da tarefa "Ler livro"
+      const novaTarefa = document.createElement('li');
+      novaTarefa.textContent = 'Fazer exercícios';
+      
+      const tarefaLivro = document.getElementById('tarefa-livro');
+      tarefaLivro.insertAdjacentElement('afterend', novaTarefa);
+
+      // 4. Selecione a tarefa "Ler livro" e adicione o texto [URGENTE] no começo dela
+      tarefaLivro.textContent = '[URGENTE] ' + tarefaLivro.textContent;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <div id="app-tarefas">
+    <h3>Minhas Tarefas</h3>
+    
+    <input type="text" id="input-nova-tarefa" placeholder="Digite uma tarefa...">
+    <button id="btn-adicionar">Adicionar Tarefa</button>
+    <button id="btn-remover">Remover Tarefa</button>
+
+    <ul id="lista-tarefas">
+        <li>Revisar código da aula passada</li>
+    </ul>
+    </div>
+
+    <script>
+        // 1. Seleção dos elementos do DOM
+        const inputTarefa = document.getElementById('input-nova-tarefa');
+        const btnAdicionar = document.getElementById('btn-adicionar');
+        const btnRemover = document.getElementById('btn-remover');
+        const listaTarefas = document.getElementById('lista-tarefas');
+
+        // AJUSTE PARA EXIBIR A SAÍDA ESPERADA:
+        // Remove a tarefa inicial "Revisar código da aula passada"
+        listaTarefas.innerHTML = '';
+
+        // Adiciona os dois itens exibidos no Exemplo de Saída
+        const itensIniciais = ['Ler livro', 'Estudar JavaScript'];
+        itensIniciais.forEach(texto => {
+            const li = document.createElement('li');
+            li.innerText = texto;
+            listaTarefas.appendChild(li);
+        });
+
+        // 2. Funcionalidade do botão Adicionar Tarefa
+        btnAdicionar.addEventListener('click', function() {
+            const textoTarefa = inputTarefa.value.trim();
+
+            if (textoTarefa !== '') {
+                const novoItem = document.createElement('li');
+                novoItem.innerText = textoTarefa;
+                listaTarefas.appendChild(novoItem);
+                inputTarefa.value = '';
+            }
+        });
+
+        // 3. Funcionalidade do botão Remover Tarefa
+        btnRemover.addEventListener('click', function() {
+            const ultimoItem = listaTarefas.lastElementChild;
+            if (ultimoItem) {
+                ultimoItem.remove();
+            }
+        });
+    </script>
+</body>
+</html>

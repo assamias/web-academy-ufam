@@ -1,0 +1,2 @@
+NOTA: 7.0
+FEEDBACK: Seu código não usou propriedades do CSS grid.

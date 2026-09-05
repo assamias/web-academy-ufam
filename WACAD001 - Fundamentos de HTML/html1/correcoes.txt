@@ -1,0 +1,2 @@
+NOTA: 9.0
+FEEDBACK: O código não possui uma ou mais das seguintes tags: <sub>, <small> e <sup>.

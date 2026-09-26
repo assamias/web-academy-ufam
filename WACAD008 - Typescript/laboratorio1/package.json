@@ -1,0 +1,27 @@
+{
+  "name": "laboratorio1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "serve": "http-server . -p 8080",
+    "start": "npm run build && npm run serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/node": "^24.5.2",
+    "@types/readline-sync": "^1.4.8",
+    "http-server": "^14.1.1",
+    "readline-sync": "^1.4.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}

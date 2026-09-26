@@ -1,0 +1,34 @@
+Parte 1:
+- nota: 10.0
+- feedbacks:
+  - O programa utiliza a função fs.readdir para obter a lista de arquivos e subdiretórios.
+  - O diretório é recebido como parâmetro pela linha de comando.
+
+Parte 2:
+- nota: 10.0
+- feedbacks:
+  - O arquivo .env foi adicionado ao .gitignore e o arquivo .env.example foi criado.
+
+Parte 3:
+- nota: 10.0
+- feedbacks:
+  - O script start foi definido no arquivo package.json.
+  - O script start executa corretamente a aplicação Node.js.
+
+Parte 4:
+- nota: 10.0
+- feedbacks:
+  - O nodemon foi instalado e registrado nas dependências de desenvolvimento.
+  - Os scripts start e start:prod foram definidos conforme solicitado.
+
+Parte 5:
+- nota: 10.0
+- feedbacks:
+  - O arquivo .env.development foi criado e utilizado para o ambiente de desenvolvimento.
+  - O arquivo .env.production foi criado para o ambiente de produção.
+
+Parte 6:
+- nota: 10.0
+- feedbacks:
+  - A página gera um link HTML para cada arquivo listado no diretório.
+  - A função createLink foi implementada em util.js e utilizada na geração dos links.

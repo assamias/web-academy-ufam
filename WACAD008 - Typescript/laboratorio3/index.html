@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratório 03 - Carrinho de Compras</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Carrinho de Compras</h1>
+  <h2>Adicionar Produto</h2>
+  <form id="formProduto">
+    <label>Tipo:
+      <select id="tipo">
+        <option value="tv">TV</option>
+        <option value="celular">Celular</option>
+        <option value="bicicleta">Bicicleta</option>
+      </select>
+    </label>
+    <label>Modelo: <input type="text" id="modelo" required></label>
+    <label>Fabricante: <input type="text" id="fabricante" required></label>
+    <label>Valor (R$): <input type="number" id="valor" required></label>
+
+    <!-- Campos específicos -->
+    <div id="extraCampos"></div>
+    <button type="submit">Adicionar</button>
+  </form>
+  <h2>Produtos no Carrinho</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Modelo</th>
+        <th>Fabricante</th>
+        <th>Detalhes</th>
+        <th>Valor (R$)</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaCarrinho"></tbody>
+  </table>
+
+  <h2>Resumo do Carrinho</h2>
+  <div class="estatisticas">
+    <p>Total de produtos: <span id="numProdutos">0</span></p>
+    <p>Valor total: R$ <span id="valorTotal">0.00</span></p>
+  </div>
+  <script src="dist/index.js"></script>
+</body>
+</html>

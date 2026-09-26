@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gerenciador de Lembretes</title>
+
+  <!-- Fonte moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1>Gerenciador de Lembretes</h1>
+      <p class="app__subtitle">Crie, edite e organize seus lembretes com data e hora.</p>
+    </header>
+
+    <!-- Card do formulário -->
+    <section class="card">
+      <form class="form-grid" onsubmit="return false;">
+        <div class="field">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" placeholder="Coloque um Título" />
+        </div>
+
+        <div class="field">
+          <label for="prazo">Data e hora</label>
+          <input type="datetime-local" id="prazo" />
+        </div>
+
+        <div class="field field--full">
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" rows="3" placeholder="Detalhes do que precisa ser feito"></textarea>
+        </div>
+
+        <div class="actions-row field--full">
+          <button id="adicionar" class="btn btn-primary" type="button">Adicionar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Lista -->
+    <section class="card">
+      <h2 class="card__title">Lembretes</h2>
+      <ul id="lista" class="list"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="./dist/index.js"></script>
+</body>
+</html>

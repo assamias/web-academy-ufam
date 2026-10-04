@@ -104,7 +104,7 @@ form.addEventListener("submit", function (e) {
     form.reset();
     idInput.value = "";
 });
-// Funções globais (precisam estar no window)
+// Funções globais
 window.editar = function (id) {
     let aluno = turma.getAlunos().find(a => a.id === id);
     if (!aluno)

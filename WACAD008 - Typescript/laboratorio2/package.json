@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "serve": "http-server . -p 8081",
+    "start": "npm run build && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.9.2"
+    "http-server": "^14.1.1",
+    "typescript": "^5.9.3"
   }
 }

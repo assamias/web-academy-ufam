@@ -1,0 +1,14 @@
+<h2>{{title}}</h2>
+
+<form action="/produto/update/{{product.id}}" method="post">
+  <label>Nome:</label>
+  <input type="text" name="name" value="{{product.name}}" class="form-control mb-2" required>
+
+  <label>Preço:</label>
+  <input type="number" name="price" value="{{product.price}}" class="form-control mb-2" required>
+
+  <label>Estoque:</label>
+  <input type="number" name="stock" value="{{product.stock}}" class="form-control mb-2" required>
+
+  <button type="submit" class="btn btn-warning">Atualizar</button>
+</form>

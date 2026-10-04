@@ -1,0 +1,30 @@
+<h2>{{title}}</h2>
+
+<a href="/produto/create" class="btn btn-success mb-3"> Novo Produto</a>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th>Estoque</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.price}}</td>
+        <td>{{this.stock}}</td>
+        <td>
+          <a href="/produto/{{this.id}}" class="btn btn-primary btn-sm">Visualizar</a>
+          <a href="/produto/update/{{this.id}}" class="btn btn-warning btn-sm">Editar</a>
+          <form action="/produto/{{this.id}}" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

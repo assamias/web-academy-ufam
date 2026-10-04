@@ -1,0 +1,14 @@
+<h2>{{title}}</h2>
+
+<form action="/produto/create" method="post">
+  <label>Nome:</label>
+  <input type="text" name="name" class="form-control mb-2" required>
+
+  <label>Preço:</label>
+  <input type="number" name="price" class="form-control mb-2" required>
+
+  <label>Estoque:</label>
+  <input type="number" name="stock" class="form-control mb-2" required>
+
+  <button type="submit" class="btn btn-success">Salvar</button>
+</form>

@@ -1,10 +1,8 @@
-// associa as rotas de produtos ao roteador principal da API
-
-import productsRouter from "../resourcers/products/products.router";
 import { Router } from "express";
+import productRouter from "../resources/product/product.router.js";
 
 const router = Router();
 
-router.use("/products", productsRouter);
+router.use("/products", productRouter);
 
 export default router;

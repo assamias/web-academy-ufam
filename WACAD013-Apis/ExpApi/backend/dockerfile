@@ -1,0 +1,40 @@
+# syntax=docker/dockerfile:1
+
+FROM node:22-alpine AS deps
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+
+FROM deps AS build
+WORKDIR /app
+COPY prisma.config.ts ./
+COPY prisma ./prisma
+RUN npx prisma generate
+
+FROM deps AS dev
+WORKDIR /app
+EXPOSE 4353
+ENTRYPOINT ["sh", "./docker-entrypoint.dev.sh"]
+CMD ["npx", "nodemon", "--watch", "src", "--exec", "tsx", "src/index.ts"]
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+
+RUN addgroup -S nodejs && adduser -S expapi -G nodejs
+
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/src/generated ./src/generated
+COPY package.json ./
+COPY prisma.config.ts ./
+COPY prisma ./prisma
+COPY src ./src
+COPY docker-entrypoint.sh ./
+RUN chmod +x docker-entrypoint.sh
+
+USER expapi
+
+EXPOSE 4353
+
+ENTRYPOINT ["./docker-entrypoint.sh"]
+CMD ["npx", "tsx", "src/index.ts"]

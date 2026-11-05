@@ -1,15 +1,14 @@
 import express from "express";
-import router from "./router";
-import dotenv from "dotenv";
+import getEnv from "./utils/validateEnv.js";
+import router from "./router/index.js";
 
-dotenv.config();
+const app = express();
+const env = getEnv();
+const PORT = env.PORT;
 
-const PORT = process.env.PORT ?? 3000;
-const server = express();
+app.use(express.json());
+app.use(router);
 
-server.use(express.json());
-server.use(router);
-
-server.listen(PORT, () =>
-  console.log(`API funcionando na porta http://localhost:${PORT}/v1/products`)
-);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

@@ -1,0 +1,22 @@
+meta {
+  name: Change Lang
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/languages
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "lang": "en-US"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
